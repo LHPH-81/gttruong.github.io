@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường THPT Chuyên Quốc Học Huế</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: url('qh.png') no-repeat center center fixed;
+            background-size: cover;
+            
+        }
+
+        /* Marquee Effect */
+         .marquee-container {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .marquee {
+        display: inline-block;
+        min-width: 100%;
+        white-space: nowrap;
+        animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+    }
+        .club-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    gap: 15px; /* Khoảng cách giữa các ảnh */
+    margin-top: 10px;
+}
+
+.club-grid a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px; /* Đảm bảo ảnh căn giữa */
+    height: 175px;
+}
+
+.club-grid a img {
+    width: 175px; /* Tăng kích thước ảnh */
+    height: 175px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border-radius: 15px; /* Bo góc ảnh */
+    transition: transform 0.3s ease-in-out;
+}
+
+.club-grid a img:hover {
+    transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Scrolling Text Bar -->
+    <div class="marquee-container overflow-hidden bg-red-900 text-white py-2">
+    <div class="marquee inline-block whitespace-nowrap animate-marquee text-lg font-bold">
+        - TRANG CHỦ CỦA TRƯỜNG THPT CHUYÊN QUỐC HỌC HUẾ  -
+    </div>
+</div>
+
+    <!-- Overlay for readability -->
+    <div class="bg-white bg-opacity-80 min-h-screen">
+
+        <!-- Header -->
+        <header class="bg-red-700 text-white py-4">
+            <div class="container mx-auto flex items-center justify-between px-6">
+                <!-- Clickable School Logo -->
+                <a href="https://www.facebook.com/DoantruongQuocHoc" target="_blank">
+                    <img src="logo.jpg" alt="School Logo" class="h-16">
+                </a>
+                <!-- Left-aligned text -->
+                <div class="ml-4 text-left">
+                    <h1 class="text-xl font-bold uppercase">Sở Giáo Dục Và Đào Tạo Thừa Thiên Huế</h1>
+                    <h2 class="text-lg font-semibold">Trường THPT Chuyên Quốc Học Huế</h2>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm..." 
+                           class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-black">
+                    <button onclick="searchKeyword()" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="bg-red-800 text-white">
+            <div class="container mx-auto flex flex-wrap justify-center">
+            <a href="#gioi-thieu" class="px-4 py-2 hover:bg-red-900">Giới thiệu</a>
+            <a href="#tin-tuc" class="px-4 py-2 hover:bg-red-900">Tin tức - Sự kiện</a>
+            <a href="#to-chuyen-mon" class="px-4 py-2 hover:bg-red-900">Ban giám hiệu - Tổ chuyên môn</a>
+            <a href="#cau-lac-bo" class="px-4 py-2 hover:bg-red-900">Câu lạc bộ</a>
+            <a href="#co-so-vat-chat" class="px-4 py-2 hover:bg-red-900">Cơ sở vật chất - Tiện nghi</a>
+            </div>
+        </nav>
+
+        <!-- Sections -->
+        <div class="container mx-auto mt-6 p-4 space-y-8">
+
+            <!-- Section Template -->
+            <section id="tin-tuc" class="bg-white bg-opacity-80 p-6 rounded-lg shadow-md">
+    <h2 class="text-red-800 text-xl font-bold border-b-2 border-red-500 pb-2">📰Tin tức - Sự kiện</h2>
+
+    <!-- Carousel Container -->
+    <div class="relative w-full max-w-3xl mx-auto mt-4">
+        <!-- Image Links -->
+        <a id="news-link" href="https://www.facebook.com/DoantruongQuocHoc/posts/pfbid02BK7HVER74aeDdW8YNzZcwoTGpNFSmcoLMLYB5GbBqPd5kAMCdg7ondg4vEa9dvpwl" target="_blank">
+            <img id="news-image" src="tuyenduong.jpg" alt="Sự kiện 1" class="w-full h-80 object-cover rounded">
+        </a>
+
+        <!-- Navigation Buttons -->
+        <button id="prev-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-2 rounded-l hover:bg-gray-900">
+            &#10094; <!-- Left Arrow -->
+        </button>
+        <button id="next-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-3 py-2 rounded-r hover:bg-gray-900">
+            &#10095; <!-- Right Arrow -->
+        </button>
+    </div>
+</section>
+
+        <section id="gioi-thieu" class="bg-white bg-opacity-80 p-6 rounded-lg shadow-md">
+    <h2 class="text-red-800 text-2xl font-bold border-b-2 border-red-500 pb-2">🏫 Giới thiệu</h2>
+
+    <!-- Bố cục 2 cột -->
+    <div class="flex flex-col md:flex-row mt-4 items-center">
+        <!-- Ảnh bên trái -->
+        <div class="md:w-1/3">
+            <img src="gioithieu1.jpg" alt="Giới thiệu về trường" class="w-full h-auto rounded shadow-lg">
+        </div>
+
+        <!-- Nội dung bên phải -->
+        <div class="md:w-2/3 md:pl-6 text-justify leading-relaxed">
+            <p class="text-lg text-gray-800">
+                🌟 <span class="text-red-700 font-semibold">Nơi đây,</span> Chủ Tịch Hồ Chí Minh và nhiều nhà lãnh đạo cao cấp của Đảng, Nhà Nước Việt Nam;
+                nhiều nhà Khoa học, Văn hóa, Giáo dục lỗi lạc như: Đặng Thai Mai, Tạ Quang Bửu, Điềm Phùng Thị, Đặng Văn Ngữ, Xuân Diệu, Huy Cận, Tôn Thất Tùng, Nguyễn Văn Thương, Trần Hoàn, v.v. đã từng giảng dạy và học tập.
+            </p>
+
+            <p class="text-lg text-gray-800 mt-4">
+                📜 <span class="text-red-700 font-semibold">Ngày 14/12/2009,</span> Chủ Tịch UBND Tỉnh Thừa Thiên Huế ký quyết định chuyển Quốc Học – Huế thành trường THPT Chuyên Quốc Học – Huế.
+            </p>
+
+            <p class="text-lg text-gray-800 mt-4">
+                🏛️ <span class="text-red-700 font-semibold">Nhà trường đang ra sức tôn tạo, nâng cấp</span> cơ sở vật chất, hoàn chỉnh đội ngũ giáo viên nhằm thực hiện nhiệm vụ giáo dục toàn diện, bồi dưỡng học sinh năng khiếu, tạo nguồn nhân lực cho đất nước.
+            </p>
+
+            <ul class="list-disc pl-5 mt-4 text-gray-800">
+                <li>📖 Truyền thống yêu nước, đấu tranh Cách Mạng</li>
+                <li>🎓 Truyền thống dạy tốt, học tốt</li>
+                <li>🤝 Truyền thống thương yêu, đoàn kết, giúp đỡ nhau</li>
+            </ul>
+
+            <p class="text-lg text-gray-800 mt-4">
+                🏆 <span class="text-red-700 font-semibold">Những danh hiệu cao quý</span> mà trường đã được tặng thưởng:
+            </p>
+            <ul class="list-disc pl-5 mt-2 text-gray-800">
+                <li>🥇 Huân chương Độc Lập hạng Nhất (1996 & 2006)</li>
+                <li>🏅 Anh hùng Lao động trong thời kỳ đổi mới</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ảnh thứ hai bên dưới -->
+    <div class="mt-6">
+        <img src="gioithieu2.jpg" alt="Hình ảnh 2 về trường" class="w-full h-auto object-cover rounded shadow-lg">
+    </div>
+</section>
+
+
+            <section id="to-chuyen-mon" class="bg-white bg-opacity-80 p-6 rounded-lg shadow-md">
+    <h2 class="text-red-800 text-2xl font-bold border-b-2 border-red-500 pb-2">🏫 Ban Giám Hiệu & Tổ Chuyên Môn</h2>
+
+    <!-- Ban giám hiệu -->
+    <div class="mt-4">
+        <h3 class="text-xl text-red-700 font-semibold">🎓 Ban Giám Hiệu</h3>
+        <ul class="mt-2 list-disc pl-5 text-gray-800 leading-relaxed">
+            <li><strong>Thầy Nguyễn Phú Thọ:</strong> Hiệu trưởng</li>
+            <li><strong>Cô Hoàng Nữ Hảo Tâm:</strong> Phó hiệu trưởng</li>
+            <li><strong>Cô Võ Thị Thu Ân:</strong> Phó hiệu trưởng</li>
+            <li><strong>Thầy Võ Văn Nguyện:</strong> Phó hiệu trưởng</li>
+        </ul>
+    </div>
+
+    <!-- Các tổ trưởng tổ chuyên môn -->
+    <div class="mt-6">
+        <h3 class="text-xl text-red-700 font-semibold">📚 Các Tổ Trưởng Tổ Chuyên Môn</h3>
+
+        <!-- Bố cục 2 cột -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 text-gray-800 leading-relaxed">
+            <ul class="list-disc pl-5">
+                <li><strong>Toán:</strong> Thầy Nguyễn Nhật Huy</li>
+                <li><strong>Ngữ Văn:</strong> Cô Thị Bích Thảo</li>
+                <li><strong>Tiếng Anh:</strong> Cô Võ Tâm Lạc Hương</li>
+                <li><strong>Vật Lí:</strong> Cô Trương Thị Đoan Trang</li>
+                <li><strong>Hóa:</strong> Thầy Võ Anh Tú</li>
+            </ul>
+
+            <ul class="list-disc pl-5">
+                <li><strong>Tin Học:</strong> Thầy Nguyễn Văn Thanh</li>
+                <li><strong>Nhật:</strong> Cô Hồ Lê Dạ Vỹ</li>
+                <li><strong>Pháp:</strong> Cô Hoàng Thị Hồng Lê</li>
+                <li><strong>Lịch Sử:</strong> Thầy Nguyễn Vũ</li>
+                <li><strong>Địa Lí:</strong> Cô Lâm Thị Phương Ngọc</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+            <section id="cau-lac-bo" class="bg-white bg-opacity-80 p-6 rounded-lg shadow-md">
+    <h2 class="text-red-800 text-2xl font-bold border-b-2 border-red-500 pb-2">👥Câu lạc bộ</h2>
+    <div class="club-grid">
+        <a href="https://www.facebook.com/frames.qh" target="_blank">
+            <img src="foq.jpg" alt="FOQ">
+        </a>
+        <a href="https://www.facebook.com/QuochocArtsyZone" target="_blank">
+            <img src="qaz.jpg" alt="QAZ">
+        </a>
+        <a href="https://www.facebook.com/QD2917" target="_blank">
+            <img src="dc.jpg" alt="DC">
+        </a>
+        <a href="https://www.facebook.com/QHMusicClub" target="_blank">
+            <img src="qmc.jpg" alt="QMC">
+        </a>
+        <a href="https://www.facebook.com/soq2021" target="_blank">
+            <img src="soq.jpg" alt="SOQ">
+        </a>
+        <a href="https://www.facebook.com/yspqh" target="_blank">
+            <img src="ysp.jpg" alt="YSP">
+        </a>
+        <a href="https://facebook.com/clbsteedqh" target="_blank">
+            <img src="sq.jpg" alt="SQ">
+        </a>
+        <a href="https://www.facebook.com/BoardgameQH" target="_blank">
+            <img src="bg.jpg" alt="Boardgame">
+        </a>
+        <a href="https://www.facebook.com/@qhbadmintonclub/" target="_blank">
+            <img src="ee.jpg" alt="Badminton">
+        </a>
+        <a href="https://www.facebook.com/qhwolves" target="_blank">
+            <img src="fc.jpg" alt="FC">
+        </a>
+        <a href="https://www.facebook.com/WindteamQHH" target="_blank">
+            <img src="wt.jpg" alt="Wind Team">
+        </a>
+        <a href="https://www.facebook.com/@humansofquochochue/" target="_blank">
+            <img src="hoq.jpg" alt="Humans of QH">
+        </a>
+        <!-- Hàng mới -->
+        <a href="https://www.facebook.com/kynangxahoiquochochue" target="_blank">
+            <img src="knxh.jpg" alt="Kỹ năng xã hội">
+        </a>
+        <a href="https://www.facebook.com/themosaicqhh" target="_blank">
+            <img src="tm.jpg" alt="The Mosaic">
+        </a>
+        <a href="https://www.facebook.com/theanecdotist.quochochue" target="_blank">
+            <img src="ta.jpg" alt="The Anecdotist">
+        </a>
+        <a href="https://www.facebook.com/AMCQuochocHue" target="_blank">
+            <img src="amc.jpg" alt="AMC">
+        </a>
+        <a href="https://www.facebook.com/quochoctacticalchess" target="_blank">
+            <img src="tc.jpg" alt="Tactical Chess">
+        </a>
+        <a href="https://www.facebook.com/thebookniverse" target="_blank">
+            <img src="tbn.jpg" alt="The Bookniverse">
+        </a>
+        <a href="https://www.facebook.com/theqrobotics" target="_blank">
+            <img src="tqr.jpg" alt="The Q Robotics">
+        </a>
+    </div>
+</section>
+
+           <section id="co-so-vat-chat" class="bg-white bg-opacity-80 p-6 rounded-lg shadow-md">
+    <h2 class="text-red-800 text-2xl font-bold border-b-4 border-red-500 pb-3 ">💡Cơ sở vật chất - Tiện nghi</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <!-- Ký túc xá -->
+        <div>
+            <h3 class="text-xl font-semibold text-red-700">1. Ký túc xá và khu vực sinh hoạt</h3>
+            <p class="text-gray-700">Ký túc xá gồm 2 tầng (Nam và Nữ), tạo điều kiện thuận lợi cho học sinh trong suốt 3 năm cấp 3.</p>
+        </div>
+        <img src="ktx1.jpg" alt="Ký túc xá 1" class="w-full h-80 object-cover rounded-lg shadow-lg">
+        
+        <!-- Thư viện và phòng lab -->
+        <img src="ktx2.jpg" alt="Ký túc xá 2" class="w-full h-80 object-cover rounded-lg shadow-lg">
+        <div>
+            <h3 class="text-xl font-semibold text-red-700">2. Thư viện, phòng lab và các cơ sở nghiên cứu</h3>
+            <p class="text-gray-700">Thư viện bố trí theo mô hình tổ hợp môn, giúp học sinh dễ dàng tra cứu tài liệu. Phòng lab gồm 4 phòng bộ môn tin học với thiết bị hiện đại.</p>
+        </div>
+        
+        <!-- Phòng bộ môn -->
+        <div>
+            <h3 class="text-xl font-semibold text-red-700">3. Các phòng bộ môn</h3>
+            <ul class="list-disc pl-6 text-gray-700">
+                <li><strong>Khoa học tự nhiên:</strong> Trang bị đầy đủ dụng cụ thí nghiệm, hóa chất.</li>
+                <li><strong>Khoa học xã hội:</strong> Có bảng tương tác, máy tính kết nối Internet.</li>
+                <li><strong>Ngoại ngữ:</strong> Trang bị máy nghe, bảng điện tử.</li>
+                <li><strong>Công nghệ thông tin:</strong> Phòng máy tính đầy đủ phần mềm học tập.</li>
+            </ul>
+        </div>
+        <img src="lophoc.jpg" alt="Phòng học bộ môn" class="w-full h-80 object-cover rounded-lg shadow-lg">
+        
+        <!-- Nhà thi đấu -->
+        <img src="ntd.jpg" alt="Nhà thi đấu" class="w-full h-80 object-cover rounded-lg shadow-lg">
+        <div>
+            <h3 class="text-xl font-semibold text-red-700">4. Nhà thi đấu</h3>
+            <p class="text-gray-700">Trường có sân bóng đá, bóng rổ, bể bơi và khu vực luyện tập thể chất.</p>
+        </div>
+        
+        <!-- Vệ sinh và an toàn -->
+        <div>
+            <h3 class="text-xl font-semibold text-red-700">5. Đảm bảo vệ sinh và an toàn</h3>
+            <ul class="list-disc pl-6 text-gray-700">
+                <li>Vệ sinh khu học tập, khu ăn uống đảm bảo an toàn.</li>
+                <li>Trang bị PCCC, huấn luyện an toàn định kỳ.</li>
+                <li>Nhân viên bảo vệ, camera giám sát 24/7.</li>
+                <li>Phòng y tế với đầy đủ thiết bị sơ cứu.</li>
+            </ul>
+        </div>
+        <img src="vesinh.jpg" alt="Vệ sinh và an toàn" class="w-full h-80 object-cover rounded-lg shadow-lg">
+    </div>
+</section>
+
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-red-900 text-white text-center py-6 mt-6">
+    <p class="text-lg font-bold">&copy; 2025 Trường THPT Chuyên Quốc Học Huế</p>
+    <p>Sở Giáo Dục và Đào Tạo Thừa Thiên Huế</p>
+    <p>📍 Địa chỉ: 12 Lê Lợi, Phường Vĩnh Ninh, thành phố Huế, tỉnh Thừa Thiên Huế</p>
+    <p>📞 Điện thoại: <a href="tel:02343823234" class="underline">0234.3823234</a></p>
+    <p>📧 Email: <a href="mailto:thpt.qh@hue.edu.vn" class="underline">thpt.qh@hue.edu.vn</a></p>
+</footer>
+    </div>
+
+    <!-- Search Script -->
+    <script>
+        function searchKeyword() {
+            let keyword = document.getElementById("search-input").value.trim().toLowerCase();
+            
+            document.querySelectorAll(".highlight").forEach(el => {
+                el.outerHTML = el.innerText;
+            });
+            
+            if (!keyword) return;
+            
+            let elements = document.querySelectorAll("body *:not(script):not(style):not(input):not(textarea):not(.marquee span)");
+            elements.forEach(el => {
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) {
+                        let text = node.nodeValue;
+                        let regex = new RegExp(`(${keyword})`, "gi");
+                        if (regex.test(text)) {
+                            let span = document.createElement("span");
+                            span.innerHTML = text.replace(regex, '<span class="highlight" style="background-color: yellow; font-weight: bold;">$1</span>');
+                            el.replaceChild(span, node);
+                        }
+                    }
+                });
+            });
+        }
+
+        document.getElementById("search-input").addEventListener("input", searchKeyword);
+
+        const newsData = [
+        { img: "tuyenduong.jpg", link: "https://www.facebook.com/DoantruongQuocHoc/posts/pfbid02BK7HVER74aeDdW8YNzZcwoTGpNFSmcoLMLYB5GbBqPd5kAMCdg7ondg4vEa9dvpwl" },
+        { img: "sukienmoi.jpg", link: "https://www.facebook.com/share/19cQqromSA/" }
+    ];
+
+    let currentIndex = 0;
+
+    // Lấy phần tử HTML
+    const newsImage = document.getElementById("news-image");
+    const newsLink = document.getElementById("news-link");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    // Hàm cập nhật hình ảnh
+    function updateNews() {
+        newsImage.src = newsData[currentIndex].img;
+        newsLink.href = newsData[currentIndex].link;
+    }
+
+    // Xử lý sự kiện khi nhấn nút trái
+    prevBtn.addEventListener("click", function() {
+        currentIndex = (currentIndex - 1 + newsData.length) % newsData.length;
+        updateNews();
+    });
+
+    // Xử lý sự kiện khi nhấn nút phải
+    nextBtn.addEventListener("click", function() {
+        currentIndex = (currentIndex + 1) % newsData.length;
+        updateNews();
+    });
+
+    // Khởi tạo ảnh đầu tiên
+    updateNews();
+    </script>
+</body>
+</html>
